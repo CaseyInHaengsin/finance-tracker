@@ -7,7 +7,9 @@ class Stock < ApplicationRecord
         secret_token: Rails.application.credentials.aex[:secret_token],
         endpoint: 'https://sandbox.iexapis.com/v1'
     )
-    client.price(ticket_symbol)
+    new(ticker: ticket_symbol, name: client.company(ticket_symbol).company_name, last_price: client.price(ticket_symbol))
+
+      #client.price(ticket_symbol)
 
   end
 end
