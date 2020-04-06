@@ -20,4 +20,8 @@ class Stock < ApplicationRecord
       #client.price(ticket_symbol)
 
   end
+
+  def self.check_db(ticker_symbol)
+    where(ticker: ticker_symbol).first
+  end
 end
