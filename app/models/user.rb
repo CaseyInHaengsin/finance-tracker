@@ -31,6 +31,7 @@ class User < ApplicationRecord
     param.strip!
     to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
     return nil unless to_send_back
+    to_send_back
   end
 
   def self.first_name_matches(param)
@@ -47,6 +48,10 @@ class User < ApplicationRecord
 
   def self.matches(field_name, param)
       where("#{field_name} like ?", "%#{param}%")
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
   end
 
 
