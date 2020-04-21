@@ -11,9 +11,8 @@
       <tr>
         <td><strong>Name: </strong> <%= friend.full_name %></td>
         <td><strong>Email: </strong> <%= friend.email %></td>
-    <td><strong>Actions: </strong> <%= link_to 'View Profile', '#',
-                                           class: "btn btn-sm btn-sucess"
-    %>
+    <td><strong>Actions: </strong> <%= link_to "View Profile", '#',
+                                           class: "btn btn-sm btn-success" %>
       <%= link_to 'Follow friend?', '#',
                       class: "btn btn-sm btn-success", method: :post %></td>
       </tr>
